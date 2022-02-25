@@ -1,12 +1,11 @@
 package com.example
 
-fun report(tests: List<Test>): String {
-    return tests
+fun report(tests: List<Test>): String =
+    tests
         .resultLines()
         .plus("")
         .plus(tests.summaryLine())
         .joinToString(System.lineSeparator())
-}
 
 private fun List<Test>.resultLines(): List<String> =
     this.map { test -> "${test.result}: ${test.description}" }
