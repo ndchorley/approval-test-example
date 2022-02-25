@@ -11,13 +11,12 @@ class TestReporterTest {
     @JUnitTest
     fun `it reports the results of all tests`(approver: Approver) {
         val report =
-            TestReporter()
-                .report(
-                    tests = listOf(
-                        Test("A line can be drawn", PASSED),
-                        Test("A rectangle can be drawn", FAILED),
-                    )
+            report(
+                tests = listOf(
+                    Test("A line can be drawn", PASSED),
+                    Test("A rectangle can be drawn", FAILED),
                 )
+            )
 
         approver.assertApproved(report)
     }
